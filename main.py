@@ -1,68 +1,93 @@
-# Home Worc 1
+# Задание 1
 
-# Task 1
-print('Task 1')
-int_variable = int(1000) # create int variable
-text_variable = "string" # create string variable
-print(text_variable) # print value of the text_variable
-print(int_variable) # print value of the int_variable
-print("input some value: ") # request to input value of the other_variable
-other_variable=input() # input value of the other_variable
-print("other_variable: {}".format(other_variable))
+# lst_ta1 = input('введите значение через пробел:')
+# lst_ta1 = lst_ta1.split()
+# print(lst_ta1)
+# i = len(lst_ta1) - 1
+#
+# while i >= 0:
+#     if lst_ta1[i].isdigit():
+#         lst_ta1[i] = int(lst_ta1[i])
+#     print(type(lst_ta1[i]))
+#     i = i-1
 
-# Task 2
-print('Task 2')
-seconds_time = int(input("input time in seconds: ")) # request to input time in seconds
-hours_time = str(seconds_time // 3600) # get quantity of hours
-seconds_time = seconds_time % 3600 # get remainder in seconds
-minutes_time = str(seconds_time//60) # get quantity of minutes
-seconds_time = str(seconds_time%60) # get remainder in seconds, this reminder is quantity of seconds
-print("standard time is {}:{}:{}".format(hours_time,minutes_time,seconds_time)) # print formed string
+# задание 2
 
-# task 3
-print('Task 3')
-universal_task_variable = input("input int number: ") # request to enter some int number
-x1_var = int(universal_task_variable) # create first int variable from int number n
-x2_var = int(2 * universal_task_variable) # create second int variable from int number nn
-x3_var = int(3 * universal_task_variable) # create third int variable from int number nnn
-print("result: {}".format(x1_var+x2_var+x3_var)) # print formed string
+# lst_ta2 = input('введите значение через пробел:')
+# lst_ta2 = lst_ta2.split()
+# i=0
+# while i < len(lst_ta2)-1:
+#     lst_ta2[i],lst_ta2[i + 1] = lst_ta2[i + 1],lst_ta2[i]
+#     i = i+2
+# print(lst_ta2)
 
-# task 4
-print('Task 4')
-universal_task_variable = input("input some string: ") # request to enter some string
-i = len(universal_task_variable) # determine the length of the string and put this value in the cycle counter "i"
-maximum_number = universal_task_variable[i-1] # the last element of string assign sa maximum
-while i > 0: # cycle will continue until cycle counter gather then zero
-    print("iteration: {}, maximum: {}".format(i,maximum_number)) # print the cycle counter and present maximum
-    if (maximum_number < universal_task_variable[i-1]): # maximum reassignment condition
-        maximum_number = universal_task_variable[i-1] # maximum reassignment
-    i = i-1 # decrement i--
-print("maximum value is : {}".format(maximum_number)) # output the element of the row with the maximum value
+# задание 3
 
-# task 5, 6
-print('Task 5,6')
-profit = int(input("input profit: "))
-expenses = int(input("input expenses: "))
-revenue = profit - expenses
-if revenue > 0:
-    print("enterprise income: {}".format(revenue))
-    profitability = float(revenue) / float(profit)
-    print("enterprise profitability: {}".format(profitability))
-    workers = int(input("input quantity of workers: "))
-    print("profit per employee: {}".format(float(revenue/workers)))
-else:
-    print("enterprise losses: {}".format(revenue))
+# mon_dict = {12: "зима", 1: "зима", 2: "зима", 3: "весна", 4: "весна", 5: "весна", 6: "лето", 7: "лето", 8: "лето",
+#             9: "осень", 10: "осень", 11: "осень"}
+# mon_list = ["winter", "winter", "spring", "spring", "spring", "summer", "summer", "summer",
+#             "autumn", "autumn", "autumn", "winter"]
+# print("введите номер месяца (от 1 до 12): ""\n")
+# mon = int(input())
+# print(mon_dict.get(mon))
+# if (mon <= 12) and (mon > 0):
+#     print(mon_list[mon - 1])
 
-# task 7
-print('Task 7')
+# задание 4
 
-start_result = float(input("input start result: "))
-final_result = float(input("final result: "))
-cycle = 0
-growth = 0
-while start_result < final_result:
-    start_result=start_result+growth
-    cycle = cycle + 1
-    print(" {} day: {} km".format(cycle,start_result))
-    growth=start_result/10
-print("final result is: {} rm. on {} day".format(start_result,cycle))
+# print('введите значение через пробел: \n')
+# lst_ta3 = input()
+# lst_ta3 = lst_ta3.split()
+#
+# i = len(lst_ta3)
+#
+# for stoka in lst_ta3:
+#     print(stoka[:10])
+
+# задание 4
+
+# lst_ta4 = [9, 7, 6, 5, 1]
+# print('введите новый номер рейтинга: \n')
+# rang = int(input())
+# if rang in lst_ta4:
+#     lst_ta4.insert(lst_ta4.index(rang), rang)
+# else:
+#     i = 0
+#     for ind in lst_ta4[0:]:
+#         if rang > int(ind):
+#             lst_ta4.insert(i,rang)
+#             break
+#         i = i+1
+# print(lst_ta4)
+
+# задание 5
+merch_base = []
+merch = {"наименование": "", "цена":"", "количество":"", "ед":""}
+stat = {"наименование": [], "цена":[], "количество":[], "ед":[]}
+while 1:
+    print("добавить товар - д, выход - н, п - печать базы, с - статистика")
+    chuse = input().lower()
+    if chuse == "н":
+        break
+    elif chuse == "д":
+        i = len(merch_base)
+        for mr in merch.keys():
+            print("введите {}: ".format(mr))
+            merch[mr] = input()
+        merch_base.append((i+1, merch.copy()))
+        print(merch_base[i])
+    elif chuse == "п":
+        for elem in merch_base:
+            print(elem)
+    elif chuse == "с":
+        for elem in merch_base:
+            for keys in stat:
+                stat[keys].append(elem[1][keys])
+        for keys in stat:
+            print(keys)
+            print(stat[keys])
+        for keys in stat:
+            stat[keys].clear()
+
+    else:
+        print("введите Д,Н,С или П")
